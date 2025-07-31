@@ -14,7 +14,7 @@ async function onMessageSendHandler(event) {
 
     if (hasExternal) {
       Office.context.ui.displayDialogAsync(
-        "https://SteveITWorks.github.io/external-email-warning/confirm.html",
+        "https://steveitworks.github.io/external-email-warning/confirm.html",
         { height: 30, width: 30 },
         result => {
           const dlg = result.value;
