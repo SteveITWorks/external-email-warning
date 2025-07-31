@@ -11,7 +11,7 @@ async function onMessageSend(event) {
     item.getAllInternetRecipientsAsync(result => {
       if (result.status === Office.AsyncResultStatus.Succeeded) {
         const recipients = result.value;
-        const internalDomain = "@yourcompany.com"; // 🔁 Change this to your actual domain
+        const internalDomain = "@itworks.co.nz"; // 🔁 Change this to your actual domain
 
         const hasExternal = recipients.some(email =>
           email.toLowerCase().includes("@") &&
