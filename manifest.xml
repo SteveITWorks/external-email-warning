@@ -1,19 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xsi:type="MailApp">
+<OfficeApp
+  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.1"
+  xsi:type="MailApp">
+
   <Id>11111111-2222-3333-4444-555555555555</Id>
   <Version>1.0.0.0</Version>
   <ProviderName>YourOrg</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="External Email Warning" />
-  <Description DefaultValue="Warns before sending to external recipients."/>
-  <IconUrl DefaultValue="https://steveitworks.github.io/external-email-warning/icon32.png"/>
-  <Hosts><Host Name="Mailbox"/></Hosts>
-  <Requirements><Sets DefaultMinVersion="1.8"><Set Name="Mailbox"/></Sets></Requirements>
-  <FormSettings><Form xsi:type="ItemSend"><FunctionFile resid="commandsJs"/></Form></FormSettings>
-  <Resources>
-    <Resource id="commandsJs" type="url" DefaultValue="https://steveitworks.github.io/external-email-warning/commands.js"/>
-  </Resources>
+  <Description DefaultValue="Warns before sending to external recipients." />
+  <IconUrl DefaultValue="https://steveitworks.github.io/external-email-warning/icon32.png" />
+  <Hosts>
+    <Host Name="Mailbox" />
+  </Hosts>
+  <Requirements>
+    <Sets DefaultMinVersion="1.8">
+      <Set Name="Mailbox" />
+    </Sets>
+  </Requirements>
+  <FormSettings>
+    <Form xsi:type="ItemSend">
+      <FunctionFile resid="commands.js" />
+    </Form>
+  </FormSettings>
   <Permissions>ReadWriteMailbox</Permissions>
+
+  <VersionOverrides
+    xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1"
+    xsi:type="VersionOverridesV1_1">
+
+    <Requirements>
+      <bt:Sets DefaultMinVersion="1.8">
+        <bt:Set Name="Mailbox" />
+      </bt:Sets>
+    </Requirements>
+
+    <Hosts>
+      <Host xsi:type="Mailbox">
+        <ExtensionPoint xsi:type="MessageSendCommandSurface">
+          <LaunchEvent Type="OnMessageSend" FunctionName="onMessageSend" />
+        </ExtensionPoint>
+      </Host>
+    </Hosts>
+
+    <Resources>
+      <bt:Urls>
+        <bt:Url id="commands.js" DefaultValue="https://steveitworks.github.io/external-email-warning/commands.js" />
+      </bt:Urls>
+    </Resources>
+
+    <Runtime>
+      <Override>
+        <FunctionMappings>
+          <FunctionMapping FunctionName="onMessageSend" FunctionLocation="commands.js" />
+        </FunctionMappings>
+        <FunctionFile resid="commands.js" />
+      </Override>
+    </Runtime>
+  </VersionOverrides>
 </OfficeApp>
