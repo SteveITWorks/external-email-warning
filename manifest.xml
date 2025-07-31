@@ -8,12 +8,12 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="External Email Warning" />
   <Description DefaultValue="Warns before sending to external recipients."/>
-  <IconUrl DefaultValue="https://SteveITWorks.github.io/external-email-warning/icon32.png"/>
+  <IconUrl DefaultValue="https://steveitworks.github.io/external-email-warning/icon32.png"/>
   <Hosts><Host Name="Mailbox"/></Hosts>
   <Requirements><Sets DefaultMinVersion="1.8"><Set Name="Mailbox"/></Sets></Requirements>
   <FormSettings><Form xsi:type="ItemSend"><FunctionFile resid="commandsJs"/></Form></FormSettings>
   <Resources>
-    <Resource id="commandsJs" type="url" DefaultValue="https://SteveITWorks.github.io/external-email-warning/commands.js"/>
+    <Resource id="commandsJs" type="url" DefaultValue="https://steveitworks.github.io/external-email-warning/commands.js"/>
   </Resources>
   <Permissions>ReadWriteMailbox</Permissions>
 </OfficeApp>
