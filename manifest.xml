@@ -12,7 +12,7 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="External Email Warning" />
   <Description DefaultValue="Warns before sending to external recipients." />
-  <IconUrl DefaultValue="https://steveitworks.github.io/external-email-warning/icon32.png" />
+  <IconUrl DefaultValue="https://steveitworks.github.io/external-email-warning/itworks-logo-2020_website.png" />
   <Hosts>
     <Host Name="Mailbox" />
   </Hosts>
